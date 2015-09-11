@@ -1,0 +1,28 @@
+<h1>첫번째 설문</h1>
+
+<% for i in 0..119%>
+<div class="col-md-1 col-sm-3">
+
+        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+            <%=@random[i].name%>
+            
+        </div>
+               
+            
+    
+</div>
+<% end %>
+<!-- Post Info -->
+<div class="true_container">
+    <h3>설문 </h3><br>
+    <p>어떤 통신사를 사용하고 계시나요?</p>
+    
+        <form action="/home/second">
+            <input type="radio" name="num" value=1 checked> SKT
+            <br>
+            <input type="radio" name="num" value=2> KT
+            <br>
+            <input type="radio" name="num" value=3> LG
+            <input type="submit">
+        </form> 
+<div>

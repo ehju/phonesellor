@@ -1,0 +1,33 @@
+<h1>두번째 설문</h1>
+확인용 :<%=@selected.count%><br>
+<%j=0%>
+<% for i in 0..119%>
+<div class="col-md-1 col-sm-3">
+        
+
+        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <% if @nonblank.include?(i) %>
+            <%=@random[j].name %>
+            <% j=j+1 %>
+        <%else%>
+
+        <% end %>
+            <%i%>
+        </div>
+               
+            
+    
+</div>
+<% end %>
+<!-- Post Info -->
+<div class="true_container">
+    <h3>설문 </h3><br>
+    <p>지불형태는 어떻게?</p>
+    
+        <form action="/home/third">
+            <input type="radio" name="num" value=1 checked> 후불
+            <br>
+            <input type="radio" name="num" value=2> 선불
+            <input type="submit">
+        </form> 
+<div>
