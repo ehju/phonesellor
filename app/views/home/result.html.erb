@@ -10,7 +10,9 @@ third : <%= $third.to_i%>
 last : <%= $last.to_i%>
 <br><br>
 해당되는 개수 : <%=@selected.count%><br>
+
 해당자 : 
+<br>
 <%i=0%>
 <%while i < @selected.count %>
 <%=@selected[i].name%>
@@ -18,22 +20,3 @@ last : <%= $last.to_i%>
 <%end%>
 <a href="/home/main">처음으로 </a>
 <br>
-<%j=0%>
-<% for i in 0..119%>
-<div class="col-md-1 col-sm-3">
-        
-
-        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-        <% if @nonblank.include?(i) %>
-            <%=@random[j].name %>
-            <% j=j+1 %>
-        <%else%>
-
-        <% end %>
-            <%i%>
-        </div>
-               
-            
-    
-</div>
-<% end %>
