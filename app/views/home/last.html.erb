@@ -1,6 +1,4 @@
-<h1>마지막 설문</h1>
-확인용 : <%=@selected.count%><br>
-<br>
+확인용 :<%=@selected.count%><br>
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
@@ -20,22 +18,23 @@
     
 </div>
 <% end %>
+
 <!-- Post Info -->
-<div class="true_container">
-    <h3>설문 </h3><br>
-    <p> 해당되는게 있나요?</p>
+<div class="box_container">
     
         <form action="/home/result">
-            <input type="radio" name="num" value=1 checked> 없음
+        
+            <ol id="selectable">
+                <button class="blocks"name="num" type="submit" value=1 checked> 1</button>
+                <button class="blocks" type="submit"  name="num" value=2 > 2</button>
+                <button class="blocks" type="submit"  name="num" value=3 > 3</button>
+                <button class="blocks" type="submit"  name="num" value=4 > 4</button>
+                <button class="blocks" type="submit"  name="num" value=5 > 5</button>
+                <button class="blocks" type="submit"  name="num" value=6 > 6</button>
+                <button class="blocks" type="submit"  name="num" value=7 > 7</button>
+                <button class="blocks" type="submit"  name="num" value=8 > 8</button>
+                <button class="blocks" type="submit"  name="num" value=9 > 9</button>
+            </ol>
             <br>
-            <input type="radio" name="num" value=2> 청소년
-            <br>
-            <input type="radio" name="num" value=3> 어르신
-            <br>
-            <input type="radio" name="num" value=4> 아동
-            <br>
-            <input type="radio" name="num" value=5> 장애
-            
-            <input type="submit">
         </form> 
-<div>
+</div>

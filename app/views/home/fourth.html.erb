@@ -1,4 +1,4 @@
-<h1>세번째 설문</h1>
+<h1>마지막 설문</h1>
 확인용 : <%=@selected.count%><br>
 <br>
 <%j=0%>
@@ -23,14 +23,19 @@
 <!-- Post Info -->
 <div class="true_container">
     <h3>설문 </h3><br>
-    <p>서비스 형태는?</p>
+    <p> 해당되는게 있나요?</p>
     
-        <form action="/home/fourth">
-            <input type="radio" name="num" value=1 checked> LTE
+        <form action="/home/last">
+            <input type="radio" name="num" value=1 checked> 없음
             <br>
-            <input type="radio" name="num" value=2> 3G
+            <input type="radio" name="num" value=2> 청소년
             <br>
-            <input type="radio" name="num" value=3> PAD
+            <input type="radio" name="num" value=3> 어르신
+            <br>
+            <input type="radio" name="num" value=4> 아동
+            <br>
+            <input type="radio" name="num" value=5> 장애
+            
             <input type="submit">
         </form> 
 <div>
