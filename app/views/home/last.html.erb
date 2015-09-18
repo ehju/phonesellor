@@ -1,40 +1,50 @@
-확인용 :<%=@selected.count%><br>
-<%j=0%>
-<% for i in 0..119%>
-<div class="col-md-1 col-sm-3">
-        
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Slider - Range with fixed minimum</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">  
+    <style>
+      .true_container {
+        position:fixed;
+        bottom:25%;left:20%;right:19%;
+        height:50%;
+        text-align:center;
+        opacity: 0.8;
+        border-radius:2em;
+    }
+  </style>
+  <script>
+  $(function() {
+    $( "#slider-range-min" ).slider({
+      range: "min",
+      value: 37,
+      min: 1,
+      max: 700,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.value );
+      }
+    });
+    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" ) );
+  });
+  </script>
 
-        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-        <% if @nonblank.include?(i) %>
-            <%=@random[j].name %>
-            <% j=j+1 %>
-        <%else%>
+</head>
+<body>
 
-        <% end %>
-            <%i%>
-        </div>
-               
-            
-    
-</div>
-<% end %>
-
-<!-- Post Info -->
-<div class="box_container">
-    
+    <div class="true_container">
         <form action="/home/result">
-        
-            <ol id="selectable">
-                <button class="blocks"name="num" type="submit" value=1 checked> 1</button>
-                <button class="blocks" type="submit"  name="num" value=2 > 2</button>
-                <button class="blocks" type="submit"  name="num" value=3 > 3</button>
-                <button class="blocks" type="submit"  name="num" value=4 > 4</button>
-                <button class="blocks" type="submit"  name="num" value=5 > 5</button>
-                <button class="blocks" type="submit"  name="num" value=6 > 6</button>
-                <button class="blocks" type="submit"  name="num" value=7 > 7</button>
-                <button class="blocks" type="submit"  name="num" value=8 > 8</button>
-                <button class="blocks" type="submit"  name="num" value=9 > 9</button>
-            </ol>
-            <br>
-        </form> 
-</div>
+        <p>
+            <label for="amount">Maximum price:</label>
+            <input type="text" id="amount" name="range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            </p>
+            <div style="width:50%; left:25%;" id="slider-range-min"></div>
+             
+            <input type="submit" value="아아">
+        </form>
+    </div>
+</body>
+</html>

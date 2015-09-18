@@ -8,7 +8,7 @@
 
         <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
         <% if @nonblank.include?(i) %>
-            <%=@random[j].name %>
+            <%=@random[j] %>
             <% j=j+1 %>
         <%else%>
 
@@ -25,7 +25,7 @@
     <h3>설문 </h3><br>
     <p> 해당되는게 있나요?</p>
     
-        <form action="/home/last">
+        <form action="/home/fifth">
             <input type="radio" name="num" value=1 checked> 없음
             <br>
             <input type="radio" name="num" value=2> 청소년
