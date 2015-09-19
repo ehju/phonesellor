@@ -78,6 +78,9 @@ class HomeController < ApplicationController
   end
   def fifth
     
+    if ($third == "3")
+      redirect_to "/home/last"
+    end
     $fourth=params[:num]
     
     @all=Phone.all
