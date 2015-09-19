@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 
-<head>  
+<head>
+
 	<script type="text/javascript">
 	window.onload = function () {
 		var chart = new CanvasJS.Chart("chartContainer",
@@ -21,8 +22,6 @@
 
 			},
 			axisY:{
-				titleFontFamily: "arial",
-				title: "데이터량",
 				valueFormatString:"0 GB",
 				titleFontSize: 1,
 				interval: 1
@@ -55,22 +54,36 @@ chart.render();
 	<center>
 	<div id="chartContainer" style="height: 600px; width: 70%;">
 	</div>
-	</center>
 
+<br><br>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
 <table class="table table-striped">
     <% @selected.each do |x| %>
-  	<% end %>
-    <tr>
-        <td>시리즈</td>
-        <td>이름</td>
-        <td>가격</td>
-        <td>음성</td>
-        <td>데이터</td>
-        <td>문자</td>
-        <td>url</td>
-    </tr>
-</table>
 
+    <tr>
+        <td><%= x.series %></td>
+        <td><%= x.name %></td>
+        <td><%= x.price24 %>원</td>
+        <td><%= x.voice %>분</td>
+        <td><%= x.webdata %>GB</td>
+        <td>
+        <% if x.letter == -1%>
+        <% @letter = "무제한"%>
+        <% else %>
+        <% @letter = x.letter %>
+        <%= @letter %>회
+        <% end %>
+        </td>
+        <td><a href="<%= x.etc %>"><%= x.etc %></a></td>
+    </tr>
+    <% end %>
+</table>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+</center>
 <p>선택된 요금제는 총 <%=@selected.count%>개 입니다.  </p>
 <a href="/home/result">결과보러 가기</a>
 
