@@ -29,10 +29,10 @@
       min: 3,
       max: 150,
       slide: function( event, ui ) {
-        $( "#amount" ).val( ui.value*1000 );
+        $( "#amount" ).val( ui.value*1 );
       }
     });
-    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" )*1000 );
+    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" )*1 );
   });
   </script>
 
