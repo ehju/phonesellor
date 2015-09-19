@@ -1,5 +1,13 @@
-<h1>결과창창<h1>
 
+<h1>결과창창<h1>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <p>당신의 선택결과</p>
 first : <%= @mydata.first%>
 <br>
@@ -13,7 +21,7 @@ data1 : <%= @mydata.data1%>
 data2 : <%= @mydata.data2%>
 
 해당되는 개수 : <%=@selected.count%><br>
-
+<div class="fb-share-button" data-href="https://facebook-hello15369.c9.io/home/result/<%=@mydata.id%>" data-layout="button_count"></div>
 해당자 : 
 <br>
 <%i=0%>
