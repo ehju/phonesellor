@@ -7,29 +7,32 @@
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
 			title:{
-				text: "Import Cost Impact on Business",      
+				text: "추천 요금제 목록",      
 				fontFamily: "arial black",
 				fontColor: "DarkSlateGrey"
 			},
                         animationEnabled: true,
 			axisX: {
-				title:"Ease of Doing Business(1 = most friendly)",
+				title:"통화량",
 				titleFontFamily: "arial",
 				gridThickness: 1,
+				minimum: -10
+				
 
 			},
 			axisY:{
-				title: "Import cost per container",
 				titleFontFamily: "arial",
+				title: "데이터량",
 				valueFormatString:"0 GB",
-				titleFontSize: 12
-				
+				titleFontSize: 1,
+				interval: 1
 			},
 
 			data: [
 			{        
 				type: "scatter",  
 				toolTipContent: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <br/> <strong>데이터</strong> {toold}<br/> <strong>음성</strong> {toolv}",
+				markerSize: 50,
 				dataPoints: [
 				  
 				<% @selected.each do |z| %>
@@ -49,10 +52,10 @@ chart.render();
 <script type="text/javascript" src="/canvasjs.min.js"></script>
 </head>
 <body>
-	<div id="chartContainer" style="height: 600px; width: 100%;">
+	<center>
+	<div id="chartContainer" style="height: 600px; width: 70%;">
 	</div>
-</body>
-</html>
+	</center>
 
 <table class="table table-striped">
     <% @selected.each do |x| %>
@@ -70,3 +73,6 @@ chart.render();
 
 <p>선택된 요금제는 총 <%=@selected.count%>개 입니다.  </p>
 <a href="/home/result">결과보러 가기</a>
+
+</body>
+</html>
