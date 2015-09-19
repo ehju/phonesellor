@@ -99,7 +99,6 @@ class HomeController < ApplicationController
     end
   end
   def last
-    render layout: false
     
     $data=params[:num]
     

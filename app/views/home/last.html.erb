@@ -3,39 +3,64 @@
 <head>
   <meta charset="utf-8">
   <title>jQuery UI Slider - Range with fixed minimum</title>
+  
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">  
-    <style>
-      .true_container {
-        position:fixed;
-        bottom:25%;left:20%;right:19%;
-        height:50%;
-        text-align:center;
-        opacity: 0.8;
-        border-radius:2em;
-    }
-  </style>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
   <script>
   $(function() {
     $( "#slider-range-min" ).slider({
       range: "min",
       value: 37,
-      min: 1,
-      max: 700,
+      min: 3,
+      max: 150,
       slide: function( event, ui ) {
-        $( "#amount" ).val( ui.value );
+        $( "#amount" ).val( ui.value*1000 );
       }
     });
-    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" ) );
+    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" )*1000 );
   });
   </script>
 
 </head>
 <body>
+<h1>세번째 설문</h1>
+확인용 : <%=@selected.count%><br>
+<br>
+<%j=0%>
+<% for i in 0..119%>
+<div class="col-md-1 col-sm-3">
+        
 
-    <div class="true_container">
+        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <% if @nonblank.include?(i) %>
+            <%=@random[j] %>
+            <% j=j+1 %>
+        <%else%>
+
+        <% end %>
+            <%i%>
+        </div>
+               
+            
+    
+</div>
+<% end %>
+    <div class="slider_container">
         <form action="/home/result">
         <p>
             <label for="amount">Maximum price:</label>

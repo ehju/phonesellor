@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'home#main'
   
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
