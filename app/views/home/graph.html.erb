@@ -10,8 +10,12 @@
 	
 	var dataSet = [
     <% @selected.each do |y| %>
-
-		["<%= y.series %>", "<%= y.name %>", "<%= y.price24 %>", "<%= y.voice %>", "<%= y.webdata %>", "<%= y.letter %>", "<%= y.etc %>"],
+		<% if y.letter == -1 %>
+		<% @letter = "무제한" %>
+		<% else %>
+		<% @letter = y.letter.to_s %>
+		<% end %>
+		["<%= y.series %>", "<%= y.name %>", "<%= y.price24 %>", "<%= y.toolv %>", "<%= y.toold %>", "<%= @letter %>", "<%= y.etc %>"],
 	<% end %>
 	];
 	 
@@ -43,15 +47,14 @@
 			axisX: {
 				title:"통화량",
 				titleFontFamily: "arial",
-				gridThickness: 1,
-				minimum: -10
+				gridThickness: 1
 				
 
 			},
 			axisY:{
 				valueFormatString:"0 GB",
 				titleFontSize: 1,
-				interval: 1
+				
 			},
 
 			data: [
