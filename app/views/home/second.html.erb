@@ -1,10 +1,13 @@
-<br>
+<body style = "background-color:#191919">
+<div style = "background-color:#191919">
+
 <%j=0%>
 <% for i in 0..119%>
-<div class="col-md-1 col-sm-3">
+<div class="col-md-1 col-sm-3" style="background-color:#191919" text-align="center">
         
 
         <div class="boxy my_content">
+        <p style="font-family:cursive; color:gray">
         <% if @nonblank.include?(i) %>
             <%=@random[j] %>
             <% j=j+1 %>
@@ -12,24 +15,37 @@
 
         <% end %>
             <%i%>
+        </p>
         </div>
                
-            
+</div>          
     
 </div>
 <% end %>
 <!-- Post Info -->
 <div class="box_container">
-    <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
+    
 </div>
-<div class="true_container">
+<div class="true_container" style="opacity:1; background-color:#cccccc">
     <h3>설문 </h3><br>
     <p>지불형태는 어떻게?</p>
     
         <form action="/home/third">
-            <input type="radio" name="num" value=1 checked> 후불
+            <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-3">
+                 <input type="image" src="/notpaid.png" width="100px" height="100px" class="img-circle" name="num" value=1 checked> <br>후불
+             </div>
+             
+             <div class="col-md-3">
+                <input type="image" src="/paid.png" width="100px" height="100px" class="img-circle" name="num" value=2> <br>선불
+             </div>
+             <div class="col-md-3"></div>
+            </div>
             <br>
-            <input type="radio" name="num" value=2> 선불
-            <input type="submit">
+            <br>
+            
+            <input type="submit"> <br><br>  <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
         </form> 
-<div>
+</div>
+</body>

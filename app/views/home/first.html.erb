@@ -1,30 +1,42 @@
-<br>
 <% for i in 0..119%>
-<div class="col-md-1 col-sm-3">
+<div class="col-md-1 col-sm-3" style="background-color:#191919" text-align="center">
 
-        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-            <%=@random[i].name%>
+        <div class="boxy my_content" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
             
-        </div>
+            <p style="font-family:cursive; color:gray"><%=@random[i].name%> </p>
+            
+</div>
                
             
     
 </div>
 <% end %>
 <!-- Post Info -->
-<div class="box_container">
-    <p><%=@all.count%> 개의 요금제가 있습니다</p>
+<div class="true_container" style="opacity:1">
+    <p> <%=@all.count%> 개의 요금제가 있습니다 </p>
 </div>
-<div class="true_container">
+<div class="true_container" style="opacity:1; background-color:#cccccc">
     <h3>설문 </h3><br>
     <p>어떤 통신사를 사용하고 계시나요?</p>
     
         <form action="/home/second">
-            <input type="radio" name="num" value=1 checked> SKT
+            <div class="row">
+            
+              <div class="col-md-4">
+                <input type="image" src="/skt.png" width="100px" height="100px" class="img-circle" name="num" value=1 checked><br> SKT
+              </div>    
+              <div class="col-md-4">
+                <input type="image" src="/olleh.jpg" width="100px" height="100px" class="img-circle" name="num" value=2><br> KT
+              </div>    
+              <div class="col-md-4">
+                <input type="image" src="/lgu.png" width="100px" height="100px" class="img-circle" name="num" value=3><br> LG
+              </div>
+            </div>
+            
             <br>
-            <input type="radio" name="num" value=2> KT
+            
             <br>
-            <input type="radio" name="num" value=3> LG
-            <input type="submit">
+            
+            <input type="submit"> <br> <br> <p> <%=@all.count%> 개의 요금제가 있습니다 </p>
         </form> 
 <div>

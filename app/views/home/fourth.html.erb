@@ -1,5 +1,4 @@
-
-<br>
+<body style = "background-color:#191919">
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
@@ -23,21 +22,35 @@
 <div class="box_container">
     <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
 </div>
-<div class="true_container">
+<div class="true_container" style="opacity:1; background-color:#cccccc">
     <h3>설문 </h3><br>
-    <p> 해당되는게 있나요?</p>
+    <p> 해당되는 것을 선택하세요</p>
     
         <form action="/home/fifth">
-            <input type="radio" name="num" value=1 checked> 없음
-            <br>
-            <input type="radio" name="num" value=2> 청소년
-            <br>
-            <input type="radio" name="num" value=3> 어르신
-            <br>
-            <input type="radio" name="num" value=4> 아동
-            <br>
-            <input type="radio" name="num" value=5> 장애
+        <div class="row">
+             <div class="col-md-1"></div>
+            <div class="col-md-2">
+            <input type="image" src="/senior.png" width="100px" height="100px" class="img-circle" name="num" value=3><br> 어르신
+                </div>
+             <div class="col-md-2">
+                <input type="image" src="/adult.png" width="100px" height="100px" class="img-circle" name="num" value=1 checked><br> 일반
+             </div>
+            <div class="col-md-2">
+            <input type="image" src="/student.png" width="100px" height="100px" class="img-circle" name="num" value=2><br> 청소년
+                </div>
             
-            <input type="submit">
+            <div class="col-md-2">
+            <input type="image" src="/kid.png" width="100px" height="100px" class="img-circle" name="num" value=4><br> 아동
+                </div>
+            <div class="col-md-2">
+            <input type="image" src="/disabled.png" width="100px" height="100px" class="img-circle" name="num" value=5><br> 장애
+                </div>
+            </div>
+            <br>
+            <br>
+            
+            <input type="submit"> <br><br>  <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
+            
         </form> 
-<div>
+</div>
+</body>

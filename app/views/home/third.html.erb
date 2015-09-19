@@ -1,5 +1,4 @@
-
-<br>
+<body style = "background-color:#191919">
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
@@ -23,16 +22,26 @@
 <div class="box_container">
     <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
 </div>
-<div class="true_container">
+<div class="true_container" style="opacity:1; background-color:#cccccc">
     <h3>설문 </h3><br>
-    <p>서비스 형태는?</p>
+    <p>서비스 형태를 선택하세요</p>
     
         <form action="/home/fourth">
-            <input type="radio" name="num" value=1 checked> LTE
+        <div class="row">
+             <div class="col-md-4">
+                <input type="image" src="/lte.png" width="100px" height="100px" class="img-circle" name="num" value=1 checked> <br>LTE
+             </div>
+             <div class="col-md-4">
+                <input type="image" src="/3g.png" width="100px" height="100px" class="img-circle" name="num" value=2> <br>3G
+             </div>
+             <div class="col-md-4">    
+            <input type="image" src="/tablet.png" width="100px" height="100px" class="img-circle" name="num" value=3> <br>tablet
+             </div>
+         </div>
             <br>
-            <input type="radio" name="num" value=2> 3G
             <br>
-            <input type="radio" name="num" value=3> PAD
-            <input type="submit">
+            
+            <input type="submit"> <br><br>  <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
         </form> 
-<div>
+</div>
+</body>
