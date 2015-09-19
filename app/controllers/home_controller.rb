@@ -121,8 +121,20 @@ class HomeController < ApplicationController
     end
   end
 
-  def result
+
+  def graph
     $val=params[:range]
+    @all=Phone.all
+    @selected=[]
+    @all.each do |x|
+      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))
+        @selected << x
+      end
+    end
+  end
+  
+  
+  def result
     @all=Phone.all
     @selected=[]
     @all.each do |x|

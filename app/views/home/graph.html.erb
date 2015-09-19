@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>  
+	<script type="text/javascript">
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer",
+		{
+			title:{
+				text: "Import Cost Impact on Business",      
+				fontFamily: "arial black",
+				fontColor: "DarkSlateGrey"
+			},
+                        animationEnabled: true,
+			axisX: {
+				title:"Ease of Doing Business(1 = most friendly)",
+				titleFontFamily: "arial",
+				gridThickness: 1,
+
+			},
+			axisY:{
+				title: "Import cost per container",
+				titleFontFamily: "arial",
+				valueFormatString:"0 GB",
+				titleFontSize: 12
+				
+			},
+
+			data: [
+			{        
+				type: "scatter",  
+				toolTipContent: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <br/> <strong>데이터</strong> {toold}<br/> <strong>음성</strong> {toolv}",
+				dataPoints: [
+				  
+				<% @selected.each do |z| %>
+                { x: <%=z.voice%>, y: <%=z.data%>, name: "<%=z.name%>", toolv: "<%=z.voice%>", toold: "<%=z.data%>" },
+                <% end %>
+        
+
+				
+				]
+			}
+			]
+		});
+
+chart.render();
+}
+</script>
+<script type="text/javascript" src="/canvasjs.min.js"></script>
+</head>
+<body>
+	<div id="chartContainer" style="height: 600px; width: 100%;">
+	</div>
+</body>
+</html>
+
+<p>선택된 요금제는 총 <%=@selected.count%>개 입니다.  </p>
+<a href="/home/result">결과보러 가기</a>
