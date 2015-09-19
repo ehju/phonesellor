@@ -54,5 +54,19 @@ chart.render();
 </body>
 </html>
 
+<table class="table table-striped">
+    <% @selected.each do |x| %>
+  	<% end %>
+    <tr>
+        <td>시리즈</td>
+        <td>이름</td>
+        <td>가격</td>
+        <td>음성</td>
+        <td>데이터</td>
+        <td>문자</td>
+        <td>url</td>
+    </tr>
+</table>
+
 <p>선택된 요금제는 총 <%=@selected.count%>개 입니다.  </p>
 <a href="/home/result">결과보러 가기</a>
