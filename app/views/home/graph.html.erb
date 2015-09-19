@@ -2,7 +2,34 @@
 <html>
 
 <head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
+	<script type="text/javascript">
+	
 
+	
+	var dataSet = [
+    <% @selected.each do |y| %>
+
+		["<%= y.series %>", "<%= y.name %>", "<%= y.price24 %>", "<%= y.voice %>", "<%= y.webdata %>", "<%= y.letter %>", "<%= y.etc %>"],
+	<% end %>
+	];
+	 
+	$(document).ready(function() {
+	    $('#example').DataTable( {
+	        data: dataSet,
+	        columns: [
+	            { title: "요금제종류" },
+	            { title: "요금제명" },
+	            { title: "월정액" },
+	            { title: "음성통화량" },
+	            { title: "데이터통화량" },
+	            { title: "문자제공량" },
+	            { title: "요금제 상세페이지" }
+	        ]
+	    } );
+	} );
+	</script>
 	<script type="text/javascript">
 	window.onload = function () {
 		var chart = new CanvasJS.Chart("chartContainer",
@@ -57,29 +84,9 @@ chart.render();
 
 <br><br>
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-<table class="table table-striped">
-    <% @selected.each do |x| %>
-
-    <tr>
-        <td><%= x.series %></td>
-        <td><%= x.name %></td>
-        <td><%= x.price24 %>원</td>
-        <td><%= x.voice %>분</td>
-        <td><%= x.webdata %>GB</td>
-        <td>
-        <% if x.letter == -1%>
-        <% @letter = "무제한"%>
-        <% else %>
-        <% @letter = x.letter %>
-        <%= @letter %>회
-        <% end %>
-        </td>
-        <td><a href="<%= x.etc %>"><%= x.etc %></a></td>
-    </tr>
-    <% end %>
-</table>
+  	<div class="col-md-1"></div>
+  	<div class="col-md-10">
+	<table id="example" class="display" width="100%"></table>
 	</div>
 	<div class="col-md-1"></div>
 </div>
