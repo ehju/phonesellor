@@ -1,10 +1,12 @@
-<br>
+<body style = "background-color:#191919">
+<div style = "background-color:#191919">
 <%j=0%>
 <% for i in 0..119%>
-<div class="col-md-1 col-sm-3">
+<div class="col-md-1 col-sm-3" style="background-color:#191919" text-align="center">
         
 
         <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <p style="font-family:cursive; color:gray">
         <% if @nonblank.include?(i) %>
             <%=@random[j] %>
             <% j=j+1 %>
@@ -12,29 +14,34 @@
 
         <% end %>
             <%i%>
+        </p>
         </div>
+        
                
             
     
 </div>
+
+</div>
 <% end %>
 
 <!-- Post Info -->
-<div class="box_container">
+<div class="box_container" style = "opacity:1">
         <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
         <form action="/home/last">
         
             <ol id="selectable">
-                <button class="blocks" name="num" type="submit" value=1 checked>음성 : 0분 ~ 300분, 데이터 : 7GB이상 (무제한 포함)</button>
-                <button class="blocks" type="submit"  name="num" value=2 >음성 : 300분 ~ 800분, 데이터 : 7GB이상 (무제한 포함)</button>
-                <button class="blocks" type="submit"  name="num" value=3 >음성 : 800분이상 (무제한 포함), 데이터 : 7GB이상 (무제한 포함)</button>
-                <button class="blocks" type="submit"  name="num" value=4 >음성 : 0분 ~ 300분, 데이터 : 3GB ~ 7GB</button>
-                <button class="blocks" type="submit"  name="num" value=5 >음성 : 300분 ~ 800분, 데이터 : 3GB ~ 7GB</button>
-                <button class="blocks" type="submit"  name="num" value=6 >음성 : 800분이상 (무제한 포함), 데이터 : 3GB ~ 7GB</button>
-                <button class="blocks" type="submit"  name="num" value=7 >음성 : 0분 ~ 300분, 데이터 : 0GB ~ 3GB</button>
-                <button class="blocks" type="submit"  name="num" value=8 >음성 : 300분 ~ 800분, 데이터 : 0GB ~ 3GB</button>
-                <button class="blocks" type="submit"  name="num" value=9 >음성 : 800분이상 (무제한 포함), 데이터 : 0GB ~ 3GB</button>
+                <button style = "background-color:#cccccc" class="blocks" name="num" type="submit" value=1 checked>음성 : 0분 ~ 300분<br> 데이터 : 7GB이상 (무제한 포함)</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=2 >음성 : 300분 ~ 800분<br> 데이터 : 7GB이상 (무제한 포함)</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=3 >음성 : 800분이상 (무제한 포함)<br> 데이터 : 7GB이상 (무제한 포함)</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=4 >음성 : 0분 ~ 300분<br> 데이터 : 3GB ~ 7GB</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=5 >음성 : 300분 ~ 800분<br> 데이터 : 3GB ~ 7GB</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=6 >음성 : 800분이상 (무제한 포함)<br> 데이터 : 3GB ~ 7GB</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=7 >음성 : 0분 ~ 300분<br> 데이터 : 0GB ~ 3GB</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=8 >음성 : 300분 ~ 800분<br> 데이터 : 0GB ~ 3GB</button>
+                <button style = "background-color:#cccccc" class="blocks" type="submit"  name="num" value=9 >음성 : 800분이상 (무제한 포함)<br> 데이터 : 0GB ~ 3GB</button>
             </ol>
             <br>
         </form> 
 </div>
+</body>

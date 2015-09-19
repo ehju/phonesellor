@@ -21,11 +21,12 @@
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   
+  
   <script>
   $(function() {
     $( "#slider-range-min" ).slider({
       range: "min",
-      value: 37,
+      value: 80,
       min: 3,
       max: 150,
       slide: function( event, ui ) {
@@ -37,14 +38,16 @@
   </script>
 
 </head>
-<body>
+<body style = "background-color:#191919">
+<div style = "background-color:#191919">
 <br>
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
         
 
-        <div class="boxy my_content">
+        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <p style="font-family:cursive; color:gray">
         <% if @nonblank.include?(i) %>
             <%=@random[j] %>
             <% j=j+1 %>
@@ -52,25 +55,29 @@
 
         <% end %>
             <%i%>
+        </p>
         </div>
                
             
-    
+</div>  
 </div>
 <% end %>
 <div class="box_container">
-    <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
+    
 </div>
-    <div class="slider_container">
-              <br><br><br>
+    <div class="slider_container" style="opacity:1; background-color:#cccccc">
         <form action="/home/graph">
         <p>
-            <label for="amount">Maximum price:</label>
-            <input type="text" id="amount" name="range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            <label for="amount">그 이상은 절대로 지불할 수 없는 금액을 조정하세요</label><br>
+            <div style="background-color:#191919" text-align="center">
+            <input type="text" id="amount" name="range" readonly style="border:0; color:#f6931f; font-weight:bold;"></div>
             </p>
             <div style="width:50%; left:25%;" id="slider-range-min"></div>
-             
-            <input type="submit" value="아아">
+            
+            <br>
+            <br>
+            <input type="image" src="/paysubmit.png" width="100px" height="100px" class="img-circle" value="아아"><br>
+            <p><%=@selected.count%> 개의 요금제로 추려집니다</p>
         </form>
     </div>
 </body>
