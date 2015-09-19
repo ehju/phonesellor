@@ -95,7 +95,6 @@ class HomeController < ApplicationController
       #원래대로 120개를 뽑아낸다
       @nonblank =(0..119).to_a.sample(120)
       @random = @selected.uniq.sample(120)
-    els
     else
     # 남은수가 120보다 적으면 남은 수만큼을 nonblank로 뽑아낸다
       @nonblank =(0..119).to_a.sample(@selected.uniq.count)
