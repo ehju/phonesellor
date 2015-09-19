@@ -186,12 +186,13 @@ class HomeController < ApplicationController
     end
   end
   
-  
+    
   def result
     @all=Phone.all
+    @mydata = Result.find(params[:id])
     @selected=[]
     @all.each do |x|
-      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.webdata >= $data1.to_i)&&(x.webdata <= $data2.to_i)&&(x.price24 <= $val.to_i)
+      if (x.company == @mydata.first.to_i)&&(x.payment == @mydata.second.to_i)&&(x.service == @mydata.third.to_i)&&((x.age == @mydata.fourth.to_i)||(x.age == 1))&&(x.voice >= @mydata.voice1.to_i)&&(x.voice <= @mydata.voice2.to_i)&&(x.webdata >= @mydata.data1.to_i)&&(x.webdata <= @mydata.data2.to_i)&&(x.price24 <= @mydata.val.to_i)
         @selected << x
       end
     end
@@ -205,5 +206,19 @@ class HomeController < ApplicationController
       @nonblank =(0..119).to_a.sample(@selected.uniq.count)
       @random = @selected.uniq.sample(@selected.uniq.count)
     end
+  end
+  
+  def save
+    @one_post=Result.new
+    @one_post.first = $first
+    @one_post.second = $second
+    @one_post.third = $third
+    @one_post.fourth= $fourth
+    @one_post.voice1= $voice1
+    @one_post.voice2= $voice2
+    @one_post.data1= $data1
+    @one_post.data2= $data2
+    @one_post.save
+    redirect_to :controller => 'home', :action => 'result', :id => @one_post.id
   end
 end

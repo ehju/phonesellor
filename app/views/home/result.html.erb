@@ -1,25 +1,16 @@
 <h1>결과창창<h1>
 
 <p>당신의 선택결과</p>
-first : <%= $first.to_i%>
+first : <%= @mydata.first%>
 <br>
-second : <%= $second.to_i%>
-<br>
-third : <%= $third.to_i%>
-<br>
-fourth : <%= $fourth.to_i%>
-<br>
-last : <%= $data.to_i%>
-<br>
-val : <%= $val.to_i%>
-<br>
-voice1 : <%= $voice1.to_i%>
-<br>
-voice2 : <%= $voice2.to_i%>
-<br>
-data1 : <%= $data1.to_i%>
-<br>
-data2 : <%= $data2.to_i%>
+second: <%= @mydata.second%>
+third : <%= @mydata.third%>
+fourth : <%= @mydata.fourth%>
+val : <%= @mydata.val%>
+voice1 : <%= @mydata.voice1%>
+voice2 : <%= @mydata.voice2%>
+data1 : <%= @mydata.data1%>
+data2 : <%= @mydata.data2%>
 
 해당되는 개수 : <%=@selected.count%><br>
 
@@ -30,5 +21,5 @@ data2 : <%= $data2.to_i%>
 <%=@selected[i]%>
 <% i+=1%>
 <%end%>
-<a href="/home/main">처음으로 </a>
+<a href="/">처음으로 </a>
 <br>
