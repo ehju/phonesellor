@@ -14,17 +14,22 @@
 ActiveRecord::Schema.define(version: 20150911030852) do
 
   create_table "phones", force: :cascade do |t|
-    t.string   "name"
     t.integer  "company"
-    t.integer  "service"
     t.integer  "payment"
+    t.integer  "service"
     t.integer  "age"
     t.string   "series"
-    t.integer  "data"
+    t.string   "name"
+    t.integer  "controltype"
+    t.integer  "price24"
     t.integer  "voice"
-    t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "toolv"
+    t.integer  "letter"
+    t.integer  "webdata"
+    t.string   "toold"
+    t.string   "etc"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

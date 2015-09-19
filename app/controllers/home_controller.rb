@@ -157,7 +157,7 @@ class HomeController < ApplicationController
     @all=Phone.all
     @selected=[]
     @all.each do |x|
-      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.data >= $data1.to_i)&&(x.data <= $data2.to_i)
+      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.webdata >= $data1.to_i)&&(x.webdata <= $data2.to_i)
         @selected << x.name
       end
     end
@@ -180,7 +180,7 @@ class HomeController < ApplicationController
     @all=Phone.all
     @selected=[]
     @all.each do |x|
-      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.data >= $data1.to_i)&&(x.data <= $data2.to_i)&&(x.price <= $val.to_i)
+      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.webdata >= $data1.to_i)&&(x.webdata <= $data2.to_i)&&(x.price24 <= $val.to_i)
         @selected << x
       end
     end
@@ -191,7 +191,7 @@ class HomeController < ApplicationController
     @all=Phone.all
     @selected=[]
     @all.each do |x|
-      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.data >= $data1.to_i)&&(x.data <= $data2.to_i)&&(x.price <= $val.to_i)
+      if (x.company == $first.to_i)&&(x.payment == $second.to_i)&&(x.service == $third.to_i)&&((x.age == $fourth.to_i)||(x.age == 1))&&(x.voice >= $voice1.to_i)&&(x.voice <= $voice2.to_i)&&(x.webdata >= $data1.to_i)&&(x.webdata <= $data2.to_i)&&(x.price24 <= $val.to_i)
         @selected << x
       end
     end
