@@ -33,16 +33,15 @@ ActiveRecord::Schema.define(version: 20150919145926) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.string   "title"
-    t.string   "first"
-    t.string   "second"
-    t.string   "third"
-    t.string   "fourth"
-    t.string   "voice1"
-    t.string   "voice2"
-    t.string   "data1"
-    t.string   "data2"
-    t.string   "val"
+    t.text     "first"
+    t.text     "second"
+    t.text     "third"
+    t.text     "fourth"
+    t.text     "voice1"
+    t.text     "voice2"
+    t.text     "data1"
+    t.text     "data2"
+    t.text     "val"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -192,16 +192,6 @@ class HomeController < ApplicationController
         @selected << x
       end
     end
-  #  남은수가 더 크다면
-    if (@selected.count >= 120)
-      #원래대로 120개를 뽑아낸다
-      @nonblank =(0..119).to_a.sample(120)
-      @random = @selected.uniq.sample(120)
-    else
-    # 남은수가 120보다 적으면 남은 수만큼을 nonblank로 뽑아낸다
-      @nonblank =(0..119).to_a.sample(@selected.uniq.count)
-      @random = @selected.uniq.sample(@selected.uniq.count)
-    end
   end
   
   def save
@@ -214,6 +204,7 @@ class HomeController < ApplicationController
     @one_post.voice2= $voice2
     @one_post.data1= $data1
     @one_post.data2= $data2
+    @one_post.val=$val
     @one_post.save
     redirect_to :controller => 'home', :action => 'result', :id => @one_post.id
   end

@@ -1,5 +1,104 @@
+<!DOCTYPE HTML>
+<html>
 
-<h1>결과창창<h1>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
+	<script type="text/javascript">
+	
+
+	
+	var dataSet = [
+    <% @selected.each do |y| %>
+		<% if y.letter == -1 %>
+		<% @letter = "무제한" %>
+		<% else %>
+		<% @letter = y.letter.to_s %>
+		<% end %>
+		["<%= y.series %>", "<%= y.name %>", "<%= y.price24 %>", "<%= y.toolv %>", "<%= y.toold %>", "<%= @letter %>", "<%= y.etc %>"],
+	<% end %>
+	];
+	 
+	$(document).ready(function() {
+	    $('#example').DataTable( {
+	        data: dataSet,
+	        columns: [
+	            { title: "요금제종류" },
+	            { title: "요금제명" },
+	            { title: "월정액" },
+	            { title: "음성통화량" },
+	            { title: "데이터통화량" },
+	            { title: "문자제공량" },
+	            { title: "요금제 상세페이지" }
+	        ]
+	    } );
+	} );
+	</script>
+	<script type="text/javascript">
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer",
+		{
+			title:{
+				text: "추천 요금제 목록",      
+				fontFamily: "arial black",
+				fontColor: "DarkSlateGrey"
+			},
+                        animationEnabled: true,
+			axisX: {
+				title:"통화량",
+				titleFontFamily: "arial",
+				gridThickness: 1
+				
+
+			},
+			axisY:{
+				valueFormatString:"0 GB",
+				titleFontSize: 1,
+				
+			},
+
+			data: [
+			{        
+				type: "scatter",  
+				toolTipContent: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <br/> <strong>데이터</strong> {toold}<br/> <strong>음성</strong> {toolv}",
+				markerSize: 50,
+				dataPoints: [
+				  
+				<% @selected.each do |z| %>
+                { x: <%=z.voice%>, y: <%=z.webdata%>, name: "<%=z.name%>", toolv: "<%=z.toolv%>", toold: "<%=z.toold%>" },
+                <% end %>
+        
+
+				
+				]
+			}
+			]
+		});
+
+chart.render();
+}
+</script>
+<script type="text/javascript" src="/canvasjs.min.js"></script>
+</head>
+<body>
+	<center>
+	<div id="chartContainer" style="height: 600px; width: 70%;">
+	</div>
+
+<br><br>
+<div class="row">
+  	<div class="col-md-1"></div>
+  	<div class="col-md-10">
+	<table id="example" class="display" width="100%"></table>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+</center>
+<p>선택된 요금제는 총 <%=@selected.count%>개 입니다.  </p>
+
+</body>
+</html>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -8,26 +107,7 @@
   js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<p>당신의 선택결과</p>
-first : <%= @mydata.first%>
-<br>
-second: <%= @mydata.second%>
-third : <%= @mydata.third%>
-fourth : <%= @mydata.fourth%>
-val : <%= @mydata.val%>
-voice1 : <%= @mydata.voice1%>
-voice2 : <%= @mydata.voice2%>
-data1 : <%= @mydata.data1%>
-data2 : <%= @mydata.data2%>
 
-해당되는 개수 : <%=@selected.count%><br>
 <div class="fb-share-button" data-href="https://facebook-hello15369.c9.io/home/result/<%=@mydata.id%>" data-layout="button_count"></div>
-해당자 : 
-<br>
-<%i=0%>
-<%while i < @selected.count %>
-<%=@selected[i]%>
-<% i+=1%>
-<%end%>
+
 <a href="/">처음으로 </a>
-<br>
