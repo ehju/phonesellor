@@ -1,4 +1,4 @@
-확인용 :<%=@selected.count%><br>
+<br>
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
@@ -21,7 +21,7 @@
 
 <!-- Post Info -->
 <div class="box_container">
-    
+        <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
         <form action="/home/last">
         
             <ol id="selectable">

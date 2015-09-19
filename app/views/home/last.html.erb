@@ -38,15 +38,13 @@
 
 </head>
 <body>
-<h1>세번째 설문</h1>
-확인용 : <%=@selected.count%><br>
 <br>
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
         
 
-        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <div class="boxy my_content">
         <% if @nonblank.include?(i) %>
             <%=@random[j] %>
             <% j=j+1 %>
@@ -60,7 +58,11 @@
     
 </div>
 <% end %>
+<div class="box_container">
+    <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
+</div>
     <div class="slider_container">
+              <br><br><br>
         <form action="/home/graph">
         <p>
             <label for="amount">Maximum price:</label>

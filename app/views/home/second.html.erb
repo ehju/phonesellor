@@ -1,11 +1,10 @@
-<h1>두번째 설문</h1>
-확인용 :<%=@selected.count%><br>
+<br>
 <%j=0%>
 <% for i in 0..119%>
 <div class="col-md-1 col-sm-3">
         
 
-        <div class="boxy my_content"data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <div class="boxy my_content">
         <% if @nonblank.include?(i) %>
             <%=@random[j] %>
             <% j=j+1 %>
@@ -20,6 +19,9 @@
 </div>
 <% end %>
 <!-- Post Info -->
+<div class="box_container">
+    <p><%=@selected.count%> 개의 요금제가 선택되었습니다</p>
+</div>
 <div class="true_container">
     <h3>설문 </h3><br>
     <p>지불형태는 어떻게?</p>
