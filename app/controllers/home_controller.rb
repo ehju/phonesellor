@@ -1,7 +1,4 @@
 class HomeController < ApplicationController
-  def main
-  end
-
   def first
     
     @all=Phone.all
