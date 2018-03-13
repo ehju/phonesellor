@@ -15,5 +15,7 @@ THIS is a hackerton project from Likelion at sogang univ(3rd)
 MEMBERS : Hyunwoo, Sangbum, Eunhye, Kyeongmin, Hunsik.
 Project period : 2015.08-2015.09
 Aim : We would like to provide "call-plan curating service" for people in Korea.
+Language: Ruby on rails
 
-You can actually see working project on 
+
+This project is currently not supported
